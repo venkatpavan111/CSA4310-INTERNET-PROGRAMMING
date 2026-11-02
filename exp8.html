@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MedCare Hospital</title>
+<style>
+body{font-family:Arial;background:#eaf6ff;text-align:center}
+.container{background:white;padding:25px;margin:40px auto;width:320px;border-radius:12px}
+input,select,button{padding:10px;margin:8px;width:90%}
+button{background:#087e8b;color:white;border:0;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="container">
+<h2>MedCare Hospital</h2>
+<h3>Book Appointment</h3>
+<input id="name" placeholder="Patient Name">
+<input id="date" type="date">
+<select id="doctor">
+<option>Cardiologist</option>
+<option>Dermatologist</option>
+<option>Neurologist</option>
+<option>General Physician</option>
+</select>
+<input id="time" type="time">
+<button onclick="book()">Book Appointment</button>
+<p id="result"></p>
+<h3>Appointments</h3>
+<div id="list"></div>
+</div>
+<script>
+let appointments=[];
+function book(){
+let n=document.getElementById("name").value;
+let d=document.getElementById("date").value;
+let doc=document.getElementById("doctor").value;
+let t=document.getElementById("time").value;
+if(!n||!d||!t){alert("Fill all details");return}
+appointments.push({n,d,doc,t});
+show();
+}
+function show(){
+document.getElementById("list").innerHTML=appointments.map((a,i)=>`${a.n} - ${a.doc} - ${a.d} ${a.t} <button onclick="cancel(${i})">Cancel</button>`).join("<hr>");
+}
+function cancel(i){appointments.splice(i,1);show()}
+</script>
+</body>
+</html>

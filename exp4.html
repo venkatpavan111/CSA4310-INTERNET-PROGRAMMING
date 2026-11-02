@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>QuickBus</title>
+<style>
+body{text-align:center; font-family:Arial; background:#fff3e0}
+button{padding:8px; background:#e65100; color:white}
+</style>
+</head>
+<body>
+<h1>QuickBus Ticket Booking</h1>
+<select id="route">
+Page 4 of 9Internet Programming Lab Record – Exp 1 to 5
+<option>Chennai - Bangalore</option>
+<option>Hyderabad - Vijayawada</option>
+<option>Madurai - Coimbatore</option>
+</select>
+<input type="date" id="date">
+<input type="number" id="seat" placeholder="Seat No">
+<button onclick="book()">Book Ticket</button>
+<button onclick="cancel()">Cancel Ticket</button>
+<p id="result"></p>
+<script>
+function book(){
+let d=date.value, s=seat.value;
+result.innerText=(d && s)?
+"Ticket booked: "+route.value+" on "+d+", Seat "+s:
+"Please select date and seat";
+}
+function cancel(){
+result.innerText="Ticket cancelled";
+}
+</script>
+</body>
+</html>

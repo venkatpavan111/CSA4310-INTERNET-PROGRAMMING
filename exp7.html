@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Beauty Appointments</title>
+<style>
+body{font-family:Arial;background:#fce4ec;text-align:center}
+.box{background:#fff;padding:20px;margin:40px auto;width:320px;border-radius:12px}
+input,select,button{padding:10px;margin:7px;width:90%;border-radius:6px;border:1px solid #ccc}
+button{background:#ad1457;color:#fff;border:0;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="box">
+<h2>Beauty Parlor</h2>
+<h3>Book Appointment</h3>
+<input id="name" placeholder="Customer Name">
+<select id="service">
+<option>Select Service</option>
+<option>Haircut - Rs.300</option>
+<option>Facial - Rs.500</option>
+<option>Hair Spa - Rs.800</option>
+<option>Bridal Makeup - Rs.5000</option>
+<option>Manicure - Rs.400</option>
+</select>
+<input id="date" type="date">
+<input id="time" type="time">
+<button onclick="book()">Book Now</button>
+<p id="msg"></p>
+<div id="list"></div>
+</div>
+<script>
+let a=[];
+function book(){
+let n=name.value,s=service.value,d=date.value,t=time.value;
+if(!n||!d||!t){alert("Fill all details");return}
+a.push(`${n} - ${s}<br>${d} ${t} <button onclick="this.parentElement.remove()" style="width:auto">Cancel</button>`);
+msg.innerHTML="Appointment Booked!";
+list.innerHTML=a.join("<hr>");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cake Ordering</title>
+<style>
+body{font-family:Arial;background:#ffe6f0;text-align:center}
+.box{background:#fff;padding:20px;margin:40px auto;width:320px;border-radius:10px}
+input,select,button{padding:8px;margin:6px;width:90%}
+button{background:#ff4081;color:#fff;border:0}
+</style>
+</head>
+<body>
+<div class="box">
+<h2>Cake Ordering</h2>
+<input id="name" placeholder="Customer Name">
+<select id="cake">
+<option>Chocolate - Rs.500</option>
+<option>Vanilla - Rs.400</option>
+<option>Strawberry - Rs.450</option>
+<option>Red Velvet - Rs.600</option>
+</select>
+<input id="qty" type="number" placeholder="Quantity" value="1">
+<input id="date" type="date">
+<button onclick="order()">Order Now</button>
+<p id="msg"></p>
+<div id="list"></div>
+</div>
+<script>
+let a=[];
+function order(){
+let n=name.value,c=cake.value,q=qty.value,d=date.value;
+if(!n||!q||!d){alert("Fill all");return}
+a.push(`${n} - ${c} x${q} - ${d} <button onclick="this.parentElement.remove()">Cancel</button>`);
+msg.innerHTML="Order Placed!";
+list.innerHTML=a.join("<hr>");
+}
+</script>
+</body>
+</html>

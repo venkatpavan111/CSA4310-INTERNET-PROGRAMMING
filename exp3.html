@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Royal Stay Hotel</title>
+<style>
+body{text-align:center; font-family:Arial; background:#eef2f7}
+button{padding:8px; background:#1565c0; color:white}
+</style>
+</head>
+<body>
+<h1>Royal Stay Hotel Booking</h1>
+<select id="room">
+<option>Single Room</option>
+<option>Double Room</option>
+<option>Deluxe Room</option>
+<option>Suite Room</option>
+</select>
+<input type="date" id="date">
+<button onclick="book()">Book Room</button>
+<button onclick="cancel()">Cancel Booking</button>
+<p id="result"></p>
+<script>
+function book(){
+let d=document.getElementById("date").value;
+document.getElementById("result").innerText=d?
+"Room booked: "+room.value+" on "+d:
+"Please select a date";
+}
+function cancel(){
+document.getElementById("result").innerText="Booking cancelled";
+}
+</script>
+</body>
+</html>
